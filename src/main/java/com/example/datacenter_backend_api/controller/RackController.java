@@ -1,5 +1,6 @@
 package com.example.datacenter_backend_api.controller;
 
+import com.example.datacenter_backend_api.domain.dto.PlaceDeviceRequest;
 import com.example.datacenter_backend_api.domain.dto.RackCreateRequest;
 import com.example.datacenter_backend_api.domain.dto.RackDto;
 import com.example.datacenter_backend_api.domain.dto.RackUpdateRequest;
@@ -42,5 +43,15 @@ public class RackController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
         rackService.delete(id);
+    }
+
+    @PostMapping("/{rackId}/devices/{deviceId}/place")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void placeDevice(
+        @PathVariable Long rackId,
+        @PathVariable Long deviceId,
+        @Valid @RequestBody PlaceDeviceRequest request
+    ) {
+        rackService.placeDevice(rackId, deviceId, request.startUnit());
     }
 }
