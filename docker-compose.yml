@@ -1,0 +1,9 @@
+services:
+  datacenter-backend-api:
+    build: .
+    container_name: datacenter-backend-api
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: h2
+      SERVER_PORT: 8080
