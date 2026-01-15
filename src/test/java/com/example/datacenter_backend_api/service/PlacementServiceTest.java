@@ -38,6 +38,7 @@ public class PlacementServiceTest {
         assertTrue(Math.abs(u1 - u2) <= 0.4);
     }
 
+    @Test
     void should_throw_if_device_cannot_fit_anywhere(){
         var racks = List.of(new PlacementRackDto("TestRack1", null, "R-1", 1, 100));
         var devices = List.of(new PlacementDeviceDto("TestDevice1-big", null, "D-1", 2, 500));

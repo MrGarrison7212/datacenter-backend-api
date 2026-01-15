@@ -36,6 +36,12 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 
+    @ExceptionHandler(PlacementException.class)
+    public ResponseEntity<ApiError> handlePlacement(PlacementException ex, HttpServletRequest req){
+        ApiError error = ApiError.of("PLACEMENT_ERROR", ex.getMessage(), req.getRequestURI());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+    }
+
     //400
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiError> handleDtoValidation(MethodArgumentNotValidException ex, HttpServletRequest req) {
