@@ -135,7 +135,9 @@ Password:(empty)
 
 ### Real placement (persisted)
 
-- `POST /api/racks/{rackId}/devices/{deviceId}/place`
+`POST /api/racks/{rackId}/devices/{deviceId}/place`
+    
+
   - body: `{startUnit: 10`}
   - returns: '204 No Content'
 
@@ -174,6 +176,14 @@ Swagger `-> POST/api/devices`
 ### 3) Place device into rack (persisted)
 
 Swagger `-> POST /api/racks/{rackId}/devices/{deviceId}/place`
+
+NOTE: `rackId` and `deviceId` are **path parameters** in Swagger (fields above the request body).
+Use the `id` returned from steps (1) and (2).
+
+From the example responses above:
+- rackId = 1
+- deviceId = 1
+
 ```bash
 {
 "startUnit": 10
